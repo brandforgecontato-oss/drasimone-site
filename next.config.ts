@@ -10,15 +10,33 @@ const ipsDaRede = Object.values(networkInterfaces())
   .map((i) => i!.address);
 
 // Headers de segurança base (skill seguranca-web, assets/headers-seguranca.md).
-// A CSP completa (script-src etc.) é ajustada na fase 5 conforme o que o site carrega de fato;
-// aqui só entram diretivas que não quebram nada.
+// CSP completa para o que este site carrega de fato (landing estática, sem scripts de terceiros).
 const headersSeguranca = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
   { key: "X-Frame-Options", value: "DENY" },
-  { key: "Content-Security-Policy", value: "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'" },
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      // Next injeta scripts inline de hidratação e o JSON-LD é inline; em desenvolvimento o React exige eval.
+      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "production" ? "" : " 'unsafe-eval'"}`,
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob:",
+      "media-src 'self'",
+      "font-src 'self'",
+      "connect-src 'self'",
+      "frame-src 'none'",
+      "manifest-src 'self'",
+      "worker-src 'self' blob:",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {

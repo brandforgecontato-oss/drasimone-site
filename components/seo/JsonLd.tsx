@@ -22,9 +22,9 @@ export function JsonLdNegocio() {
     dados.address = {
       "@type": "PostalAddress",
       streetAddress: e.bairro ? `${e.rua}, ${e.bairro}` : e.rua,
-      addressLocality: e.cidade,
-      addressRegion: e.uf,
-      postalCode: e.cep,
+      ...(e.cidade && { addressLocality: e.cidade }),
+      ...(e.uf && { addressRegion: e.uf }),
+      ...(e.cep && { postalCode: e.cep }),
       addressCountry: "BR",
     };
   }

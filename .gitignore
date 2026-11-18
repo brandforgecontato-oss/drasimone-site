@@ -51,3 +51,6 @@ next-env.d.ts
 
 # mídia recebida/gerada bruta (pode passar de 50 MB): só os comprimidos de public/media/ vão pro git
 /projeto/referencias/midia/
+
+# Mídia bruta recebida do cliente (pode ter imagem de paciente)
+*.zip

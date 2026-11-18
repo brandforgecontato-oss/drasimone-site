@@ -1,8 +1,2 @@
-"use client";
-
-import { MotionConfig } from "motion/react";
-import type { ReactNode } from "react";
-
-export default function ConfiguracaoMotion({ children }: { children: ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
-}
+// Motion não foi aprovado neste projeto (ESTADO.md, Stack). Arquivo vazio de propósito: apagar na limpeza.
+export {};

@@ -30,18 +30,25 @@ export type Site = {
 };
 
 export const site: Site = {
-  nome: "",
-  descricao: "",
+  nome: "Dra. Simone Pinheiro",
+  descricao:
+    "Biomédica esteta (CRBM 11287) com 10 anos em harmonização facial e corporal. Atendimento no Setor Marista, em Goiânia, e online. Agende pelo WhatsApp.",
   paginas: ["/"],
   negocio: {
-    tipoSchema: "LocalBusiness",
-    telefone: "",
-    whatsapp: "",
-    email: "",
-    endereco: null,
-    horario: [],
-    redes: [],
-    registroProfissional: "",
+    tipoSchema: "HealthAndBeautyBusiness",
+    telefone: "+55-62-99931-2310",
+    whatsapp: "5562999312310",
+    email: "", // grafia a confirmar com a Dra. (BRIEF)
+    endereco: {
+      rua: "Avenida Portugal esq. Av. T-8, nº 808, Clínica CCL",
+      bairro: "Setor Marista",
+      cidade: "Goiânia",
+      uf: "GO",
+      cep: "", // pendente do cliente
+    },
+    horario: ["Mo-Sa 08:00-20:00"],
+    redes: ["https://www.instagram.com/drasimonepinheiro"],
+    registroProfissional: "CRBM 11287",
   },
 };
 

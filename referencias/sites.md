@@ -95,15 +95,15 @@ Para adicionar um site, copie o bloco de uma entrada e preencha. Qualquer um dos
 
 - Link: [https://moneyincheck.org](https://moneyincheck.org)  
 - O que impressiona: um dos melhores heros.  
-- Técnica: a analisar (hero)  
+- Técnica: título gigante em serifa com um objeto real (cavalo de xadrez) encaixado entre as letras, parte na frente e parte atrás; depois, manifesto em texto grande que passa de cinza a preto com a rolagem e frase final em contorno que se preenche. Capturas em `referencias/analise/money-in-check/` (usada em drasimone-site, direção B)  
 - Ousadia: uau  
-- Nicho: a analisar
+- Nicho: livro, editorial
 
 ### Mind Robotics
 
 - Link: [https://www.mindrobotics.com](https://www.mindrobotics.com)  
 - O que impressiona: a seção "Intelligence on the factory floor".  
-- Técnica: a analisar (seção específica, não o site inteiro)  
+- Técnica: uma afirmação por tela em tipo enorme sobre campo liso; frases montadas em blocos de pílula colorida que entram com a rolagem; na seção "Intelligence on the factory floor", o título fica parado e uma ilustração isométrica de linha monta a fábrica atrás dele. Capturas em `referencias/analise/mind-robotics/` (usada em drasimone-site, direção A)  
 - Ousadia: marcante  
 - Nicho: tecnologia, indústria
 
@@ -111,7 +111,7 @@ Para adicionar um site, copie o bloco de uma entrada e preencha. Qualquer um dos
 
 - Link: [https://www.meermohsin.me](https://www.meermohsin.me)  
 - O que impressiona: página inteira animada pela rolagem.  
-- Técnica: animação guiada por scroll (detalhar ao analisar)  
+- Técnica: página inteira escura e vermelha guiada pela rolagem: revelações com borda de papel rasgado, tipografia script gigante em contorno, mockups em cena 3D e rodapé de navegação fixo. Capturas em `referencias/analise/meer-mohsin/` (analisada em drasimone-site, não usada)  
 - Ousadia: uau  
 - Nicho: portfólio
 
@@ -119,6 +119,6 @@ Para adicionar um site, copie o bloco de uma entrada e preencha. Qualquer um dos
 
 - Link: [https://www.moto-card.com](https://www.moto-card.com)  
 - O que impressiona: scroll criativo e bonito.  
-- Técnica: scroll criativo (detalhar ao analisar)  
+- Técnica: cena escura cinematográfica com um objeto central (o cartão) e a rolagem atravessando o espaço até a cena seguinte (globo, ambientes, fotos flutuando em profundidade); alterna uma seção clara de contraste. Capturas em `referencias/analise/moto-card/` (usada em drasimone-site, direção C)  
 - Ousadia: uau  
-- Nicho: a analisar
+- Nicho: cartão de crédito de luxo, fintech

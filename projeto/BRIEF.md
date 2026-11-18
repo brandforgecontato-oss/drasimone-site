@@ -35,13 +35,13 @@ Frase de posicionamento dita por ela: "elevar sua autoestima, realçando sua bel
 - Endereço completo: Avenida Portugal esquina com Avenida T-8, nº 808, Clínica CCL, Setor Marista, Goiânia-GO (cidade deduzida pelo DDD 62 e pelo Setor Marista, a confirmar); CEP —
 - Telefone / WhatsApp comercial: (62) 99931-2310
 - E-mail comercial: simonermpinheiro@hotmail.com (digitado com espaço antes do ".com", a confirmar)
-- Horário de funcionamento: —
+- Horário de funcionamento: segunda a sábado, 8h às 20h (confirmado pela Dra. em 2026-11-18; schema `Mo-Sa 08:00-20:00`)
 - Redes sociais: Instagram @drasimonepinheiro
 - Fotos do espaço, equipe e serviços: a Simone tem fotos e vídeos e quer usar no site; falta envio (resolução original)
 - Foto/vídeo real da pessoa: tem e quer usar (autorização formal a confirmar)
 - Autoriza gerar imagem de pessoa com IA para representar o negócio? **não**: o site usa só fotos reais dela (a enviar)
-- Logo e identidade existente: logo recebido em `projeto/referencias/marca/logo-original.jpeg` (JPEG 500×500, fundo branco; vetor/PNG transparente seria melhor). Cisne em dourado champagne, nome em serifa clássica dourada, "BIOMÉDICA ESTETA" em caixa-alta espaçada cinza. Paleta deduzida do logo: dourado quente + off-white; sem manual de marca
-- Domínio: não tem; aprovado tentar drasimonepinheiro.com.br (disponibilidade a verificar)
+- Logo e identidade existente: logo recebido em `projeto/referencias/marca/logo-original.jpeg` (JPEG 500×500, fundo branco, marca ocupa ~230×110 px; a Dra. confirmou em 2026-11-18 que não há vetor nem PNG — o cisne será redesenhado em SVG e o nome composto em texto com serifa equivalente). Cisne em dourado champagne, nome em serifa clássica dourada, "BIOMÉDICA ESTETA" em caixa-alta espaçada cinza. Paleta deduzida do logo: dourado quente + off-white; sem manual de marca
+- Domínio: drasimonepinheiro.com.br, aprovado pela Dra. em 2026-11-18 (registro e disponibilidade a verificar)
 - Acessos necessários: registro de domínio/DNS, Vercel (empresa), Google Business Profile, Instagram
 - Avaliações e depoimentos existentes: tem; links/prints pendentes; atenção à seção 2
 - Atendimento online: sim (como funciona: —)
@@ -66,4 +66,12 @@ Frase de posicionamento dita por ela: "elevar sua autoestima, realçando sua bel
 - `projeto/referencias/material-bruto.md` — respostas do questionário
 - `projeto/referencias/marca/logo-original.jpeg` — logo
 - Instagram público @drasimonepinheiro (print do dev): bio "Dra. Simone Pinheiro | Harmonização Facial"; "Especialista em harmonização glútea"; link de WhatsApp via bit.ly; destaques Feedbacks, Congressos, Lavieen. Tom das fotos: alto-brilho, dourado/quente. Conteúdo de corpo e glúteo no feed: cuidado com a regra de publicidade
-- Pendente: fotos e vídeos da Dra., links de avaliações
+- 2026-11-18 — 2 fotos e 4 vídeos via WhatsApp, em `projeto/referencias/midia/recebido/` (fora do git; folha de contato em `index.html`). Tudo comprimido pelo WhatsApp:
+  - 01, 02 — retratos profissionais da Dra. (615×1280, 784×1280). Bons para "sobre"/hero mobile; pouca resolução para hero desktop
+  - 03 — reel 9:16 (576×1024, 35 s): Dra. de jaleco + paciente com rosto visível. Marca d'água do Instagram; paciente autorizou uso de imagem (dev, 2026-11-18)
+  - 04 — vinheta do logo (cisne dourado), 576×1024. Referência de cor e marca; não é o arquivo do logo
+  - 05 — reel de harmonização glútea com glúteos de pacientes e legenda. Fora da v1 (regra conservadora CRBM)
+  - 06 — procedimento glúteo 16:9 (1024×576). Fora da v1 pelo mesmo motivo
+- Vídeos: não existem versões sem marca d'água; usar estes. No processamento, recortar o ícone/@ do canto, cortar a cartela final do Instagram e tratar como vídeo pequeno (moldura 9:16, não fundo de tela cheia no desktop)
+- Mídia fechada: não virá outra e nada será gerado por IA/Google Flow. O hero desktop usa as fotos verticais em composição (recorte/lado a lado), não foto em tela cheia
+- Pendente: links de avaliações
