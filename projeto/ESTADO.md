@@ -96,3 +96,8 @@ Seção em andamento: —
 - 2026-11-18 — Fase 3 concluída: "pode construir" com a direção B; stack registrada
 - 2026-11-18 — Fase 4 concluída: landing construída e revisada, segurança sem item crítico (Next 16.4.6); Lighthouse e `verificar` completo pendentes (ver RELATORIO)
 - 2026-11-18 — Refinamento: animações de texto (títulos com SplitText, entrada do hero, revelação de parágrafos/listas); desligadas com movimento reduzido e sem JS
+- 2026-11-18 — Refinamento: fundo com profundidade (brilhos vinho/champanhe, penas em contorno), decisão #17
+- 2026-11-18 — Refinamento: botões do WhatsApp em pílula com logo e brilho, decisão #18
+- 2026-11-18 — Refinamento: tela de abertura com o logo, decisão #19
+- 2026-11-18 — Refinamento: passos com scroll fixo no desktop, decisão #20
+- 2026-11-18 — Refinamento: corte do g nos títulos, Abordagem redesenhada e faixa tipográfica, decisão #21

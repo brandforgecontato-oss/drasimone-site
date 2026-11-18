@@ -101,32 +101,77 @@ video {
   top: 8px;
 }
 
-/* Botão: retangular, borda interna de 1 px, sem sombra */
+/* Botão do WhatsApp: pílula com selo do logo, halo champanhe e brilho que varre o botão */
 .btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 48px;
-  background: var(--champanhe);
+  gap: 12px;
+  min-height: 52px;
+  background: linear-gradient(180deg, #e6c98d 0%, var(--champanhe) 55%, #c79f58 100%);
   color: var(--vinho);
   font: 500 16px/1 var(--font-corpo);
-  padding: 16px 24px;
-  box-shadow: inset 0 0 0 1px rgba(28, 13, 17, 0.25);
+  padding: 10px 26px 10px 10px;
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 0 0 1px rgba(28, 13, 17, 0.18),
+    0 0 26px -4px rgba(214, 178, 112, 0.55);
   transition:
     transform 0.2s var(--ease),
-    background 0.3s;
+    box-shadow 0.35s var(--ease),
+    filter 0.3s;
 }
 .btn:hover {
-  background: #e2c287;
+  filter: brightness(1.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 0 0 1px rgba(28, 13, 17, 0.18),
+    0 0 38px -2px rgba(214, 178, 112, 0.8);
 }
 .btn:active {
-  transform: translateY(1px) scale(0.99);
+  transform: translateY(1px) scale(0.985);
 }
-.btn svg {
-  width: 18px;
-  height: 18px;
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  width: 38%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: translateX(-160%) skewX(-22deg);
+  animation: brilho 4.2s var(--ease) 1.2s infinite;
+  pointer-events: none;
+}
+.btn:hover::after {
+  animation-duration: 1.4s;
+  animation-delay: 0s;
+}
+@keyframes brilho {
+  0% {
+    transform: translateX(-160%) skewX(-22deg);
+  }
+  35%,
+  100% {
+    transform: translateX(380%) skewX(-22deg);
+  }
+}
+.btn .wa {
+  display: grid;
+  place-items: center;
   flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+}
+.btn .wa svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Menu */
@@ -167,9 +212,13 @@ video {
   color: var(--perola);
 }
 .nav .btn {
-  min-height: 44px;
-  padding: 12px 18px;
+  min-height: 48px;
+  padding: 7px 22px 7px 7px;
   font-size: 15px;
+}
+.nav .btn .wa {
+  width: 32px;
+  height: 32px;
 }
 
 /* Hero: três camadas (nome cheio atrás, retrato, nome em contorno na frente) */
@@ -296,9 +345,9 @@ h1 {
   padding: clamp(96px, 14vh, 160px) var(--m);
 }
 .abordagem h2 {
-  font: 500 clamp(64px, 8vw, 128px) / 0.9 var(--font-display);
-  letter-spacing: -0.02em;
-  margin-bottom: 32px;
+  font: 500 clamp(72px, 9.6vw, 164px) / 0.92 var(--font-display);
+  letter-spacing: -0.025em;
+  margin-bottom: 36px;
 }
 .abordagem p {
   max-width: 44ch;
@@ -306,11 +355,20 @@ h1 {
   font-size: 19px;
 }
 blockquote {
-  margin-top: 40px;
-  padding-left: 20px;
-  border-left: 1px solid var(--champanhe);
-  font: 500 26px/1.25 var(--font-display);
-  max-width: 26ch;
+  position: relative;
+  margin-top: 56px;
+  padding-top: 52px;
+  font: 500 clamp(28px, 2.5vw, 38px) / 1.2 var(--font-display);
+  max-width: 24ch;
+}
+blockquote::before {
+  content: "“";
+  position: absolute;
+  left: -0.04em;
+  top: 0;
+  font: 500 150px / 1 var(--font-display);
+  color: var(--champanhe);
+  opacity: 0.55;
 }
 blockquote cite {
   display: block;
@@ -321,7 +379,25 @@ blockquote cite {
 }
 .consultorio {
   justify-self: end;
-  width: min(360px, 100%);
+  width: min(420px, 100%);
+}
+.moldura {
+  position: relative;
+}
+.moldura-linha {
+  position: absolute;
+  inset: 22px -22px -22px 22px;
+  border: 1px solid rgba(214, 178, 112, 0.65);
+}
+.moldura .quadro {
+  position: relative;
+  z-index: 1;
+}
+.js .moldura .quadro {
+  clip-path: inset(100% 0 0 0);
+}
+.js .moldura-linha {
+  opacity: 0;
 }
 .quadro {
   position: relative;
@@ -339,9 +415,48 @@ blockquote cite {
   object-fit: cover;
 }
 .consultorio figcaption {
-  margin-top: 14px;
+  margin-top: 60px;
   font-size: 15px;
   color: var(--rosa);
+  letter-spacing: 0.02em;
+}
+
+.faixa {
+  overflow: hidden;
+  border-block: 1px solid rgba(214, 178, 112, 0.28);
+  padding: clamp(22px, 3.5vw, 40px) 0;
+  background: var(--vinho);
+}
+.faixa-trilho {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.faixa-bloco {
+  display: flex;
+  flex: none;
+}
+.faixa-item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+  padding-right: clamp(28px, 4vw, 64px);
+  font: 500 clamp(52px, 8.4vw, 132px) / 1 var(--font-display);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(214, 178, 112, 0.8);
+}
+.faixa-item .cheia {
+  color: var(--perola);
+  -webkit-text-stroke: 0;
+}
+.faixa-item svg {
+  flex: none;
+  width: clamp(38px, 4.4vw, 68px);
+  height: auto;
+  color: var(--champanhe);
+  opacity: 0.85;
 }
 
 .proc {
@@ -636,7 +751,14 @@ blockquote cite {
   }
   .consultorio {
     justify-self: center;
-    width: min(360px, 80%);
+    width: min(360px, 78%);
+    margin-bottom: 22px;
+  }
+  .moldura-linha {
+    inset: 14px -14px -14px 14px;
+  }
+  blockquote::before {
+    font-size: 120px;
   }
   .proc {
     grid-template-columns: 1fr;
@@ -684,16 +806,234 @@ blockquote cite {
   }
 }
 
+/* Profundidade do fundo: brilhos vinho/champanhe e penas em camadas (contorno), só CSS/SVG, sem sombra */
+:root {
+  --penas: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640' fill='none' stroke='%23D6B270' stroke-opacity='.32' stroke-width='1.2'%3E%3Cg transform='translate(70 600)'%3E%3Cpath vector-effect='non-scaling-stroke' transform='rotate(-84) scale(13)' d='M0 0C3-9 13-15 25-15 23-5 12 2 0 0Z'/%3E%3Cpath vector-effect='non-scaling-stroke' transform='rotate(-62) scale(14)' d='M0 0C3-9 13-15 25-15 23-5 12 2 0 0Z'/%3E%3Cpath vector-effect='non-scaling-stroke' transform='rotate(-40) scale(14.5)' d='M0 0C3-9 13-15 25-15 23-5 12 2 0 0Z'/%3E%3Cpath vector-effect='non-scaling-stroke' transform='rotate(-18) scale(14)' d='M0 0C3-9 13-15 25-15 23-5 12 2 0 0Z'/%3E%3Cpath vector-effect='non-scaling-stroke' transform='rotate(4) scale(12.5)' d='M0 0C3-9 13-15 25-15 23-5 12 2 0 0Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero,
+.abordagem,
+.proc,
+.passos,
+.sobre,
+.onde {
+  position: relative;
+  isolation: isolate;
+}
+.abordagem,
+.proc,
+.passos,
+.sobre,
+.onde {
+  overflow: clip;
+}
+.hero::before,
+.abordagem::before,
+.proc::before,
+.passos::before,
+.sobre::before,
+.onde::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero::before {
+  z-index: 0;
+  background:
+    radial-gradient(42% 58% at 50% 48%, rgba(132, 44, 62, 0.33), transparent 72%),
+    radial-gradient(34% 44% at 8% 92%, rgba(214, 178, 112, 0.072), transparent 70%),
+    radial-gradient(30% 40% at 96% 14%, rgba(132, 44, 62, 0.187), transparent 70%);
+}
+.abordagem::before {
+  background:
+    radial-gradient(38% 52% at 84% 52%, rgba(132, 44, 62, 0.335), transparent 72%),
+    radial-gradient(30% 40% at 4% 100%, rgba(214, 178, 112, 0.055), transparent 70%),
+    var(--penas) no-repeat 46% 135% / min(560px, 60vw);
+  background-blend-mode: normal;
+}
+.abordagem::after,
+.passos::after,
+.onde::after {
+  content: "";
+  position: absolute;
+  left: var(--m);
+  right: var(--m);
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(214, 178, 112, 0.5), rgba(214, 178, 112, 0) 70%);
+}
+.proc::before {
+  background:
+    radial-gradient(46% 70% at 0% 0%, rgba(214, 178, 112, 0.055), transparent 70%),
+    radial-gradient(40% 60% at 100% 100%, rgba(132, 44, 62, 0.239), transparent 70%);
+}
+.passos::before {
+  background:
+    radial-gradient(50% 60% at 50% 0%, rgba(132, 44, 62, 0.271), transparent 72%),
+    var(--penas) no-repeat 104% -40% / min(480px, 60vw);
+}
+.sobre::before {
+  background:
+    radial-gradient(40% 70% at 22% 50%, rgba(132, 44, 62, 0.36), transparent 72%),
+    radial-gradient(34% 50% at 100% 100%, rgba(214, 178, 112, 0.055), transparent 70%);
+}
+.onde::before {
+  background:
+    radial-gradient(46% 62% at 18% 92%, rgba(214, 178, 112, 0.077), transparent 72%),
+    radial-gradient(36% 50% at 96% 8%, rgba(132, 44, 62, 0.303), transparent 70%),
+    var(--penas) no-repeat -4% -30% / min(480px, 55vw);
+}
+.abordagem::before,
+.passos::before,
+.onde::before {
+  opacity: 1;
+}
+
+/* Tela de abertura: CSS puro (roda antes da hidratação). Some com `display:none` sem a marca `js`. */
+.loader {
+  display: none;
+}
+.js .loader {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background:
+    radial-gradient(48% 52% at 50% 46%, rgba(132, 44, 62, 0.5), transparent 72%),
+    radial-gradient(40% 40% at 50% 120%, rgba(214, 178, 112, 0.14), transparent 70%),
+    var(--vinho);
+  clip-path: inset(0 0 0 0);
+}
+html.js:not([data-carregado]) {
+  overflow: hidden;
+}
+.loader-miolo {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  text-align: center;
+  padding: 0 24px;
+}
+.loader-cisne {
+  width: clamp(120px, 17vw, 190px);
+  height: auto;
+  color: var(--champanhe);
+  overflow: visible;
+}
+.loader .cisne-pena,
+.loader .cisne-corpo,
+.loader .cisne-cabeca {
+  opacity: 0;
+}
+.js .loader .cisne-corpo {
+  animation: ldr-sobe 1s var(--ease) 0.15s forwards;
+}
+.js .loader .cisne-pena {
+  animation: ldr-sobe 0.9s var(--ease) forwards;
+}
+.js .loader .cisne-pena.p1 {
+  animation-delay: 0.45s;
+}
+.js .loader .cisne-pena.p2 {
+  animation-delay: 0.6s;
+}
+.js .loader .cisne-pena.p3 {
+  animation-delay: 0.75s;
+}
+.js .loader .cisne-pena.p4 {
+  animation-delay: 0.9s;
+}
+.js .loader .cisne-cabeca {
+  animation: ldr-sobe 0.6s var(--ease) 1.65s forwards;
+}
+.loader .cisne-pescoco {
+  /* traço 1, vão 2: com offset 1 o caminho inteiro cai no vão (sem a bolinha do terminal arredondado) */
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1;
+}
+.js .loader .cisne-pescoco {
+  animation: ldr-traco 1s cubic-bezier(0.65, 0, 0.35, 1) 0.8s forwards;
+}
+.loader-nome {
+  margin-top: clamp(22px, 3.4vh, 34px);
+  font: 500 clamp(26px, 3.2vw, 40px) / 1.1 var(--font-display);
+  letter-spacing: 0.01em;
+  color: var(--perola);
+  opacity: 0;
+}
+.js .loader-nome {
+  animation: ldr-texto 1s var(--ease) 1.35s forwards;
+}
+.loader-linha {
+  display: block;
+  height: 1px;
+  width: 0;
+  margin: 18px 0 14px;
+  background: linear-gradient(90deg, transparent, var(--champanhe), transparent);
+}
+.js .loader-linha {
+  animation: ldr-linha 1.1s var(--ease) 1.5s forwards;
+}
+.loader-sub {
+  font: 400 12px/1 var(--font-corpo);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--rosa);
+  opacity: 0;
+}
+.js .loader-sub {
+  animation: ldr-texto 1s var(--ease) 1.7s forwards;
+}
+@keyframes ldr-sobe {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ldr-traco {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ldr-texto {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ldr-linha {
+  from {
+    width: 0;
+  }
+  to {
+    width: min(220px, 56vw);
+  }
+}
+
 /* Animações de texto: só com a marca `js` no <html> (movimento permitido e JS ativo; ver app/layout.tsx).
    Sem JS ou com movimento reduzido, nada disso se aplica e o texto aparece parado. */
 .js [data-titulo]:not([data-pronto]) {
   visibility: hidden;
 }
 .titulo-mascara {
-  padding-bottom: 0.15em;
-  margin-bottom: -0.15em;
+  padding: 0.12em 0.04em 0.32em;
+  margin: -0.12em -0.04em -0.32em;
 }
-.js [data-reveal] {
+.js [data-reveal],
+.js [data-passo] {
   opacity: 0;
   transform: translateY(28px);
 }
@@ -705,6 +1045,22 @@ blockquote cite {
 .js .hero .lado {
   opacity: 0;
   transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::after {
+    display: none;
+  }
+}
+
+/* Passos: no desktop a seção fica fixa e os três passos entram conforme a rolagem (AnimacoesTexto) */
+@media (min-width: 821px) {
+  .passos {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 /* Rede de segurança para animações e transições CSS. GSAP tem tratamento próprio (matchMedia). */

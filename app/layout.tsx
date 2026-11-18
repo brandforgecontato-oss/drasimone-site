@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Cisne } from "@/components/secoes/Cisne";
 import { JsonLdNegocio } from "@/components/seo/JsonLd";
 import { site, siteIndexavel, urlDoSite } from "@/lib/site";
 import "./globals.css";
@@ -52,6 +53,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: marcaMovimento }} />
       </head>
       <body>
+        {/* Tela de abertura: só aparece com a marca `js` (movimento permitido); sai por AnimacoesTexto */}
+        <div className="loader" aria-hidden="true">
+          <div className="loader-miolo">
+            <Cisne className="loader-cisne" />
+            <p className="loader-nome">Dra. Simone Pinheiro</p>
+            <span className="loader-linha" />
+            <p className="loader-sub">Biomédica esteta</p>
+          </div>
+        </div>
         {children}
         <JsonLdNegocio />
       </body>

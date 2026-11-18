@@ -78,31 +78,59 @@ export function Hero() {
 export function Abordagem() {
   return (
     <section className="abordagem" aria-labelledby="t-abordagem">
-      <div>
-        <h2 id="t-abordagem" data-titulo>Sem exagero.</h2>
+      <div className="abordagem-texto">
+        <h2 id="t-abordagem" data-titulo>
+          Sem exagero.
+        </h2>
         <p data-reveal>
           Harmonizar é realçar o que já é seu. Cada procedimento começa por entender seus traços, sua história e o que
           você quer manter.
         </p>
         <blockquote data-reveal>
-          “Realçar sua beleza natural e revelar sua autenticidade.”
+          Realçar sua beleza natural e revelar sua autenticidade.”
           <cite>Dra. Simone Pinheiro</cite>
         </blockquote>
       </div>
-      <figure className="consultorio" data-reveal>
-        <div className="quadro">
-          <VideoComPoster
-            src="/media/abordagem/dra-consultorio"
-            poster="/media/abordagem/dra-consultorio-poster.jpg"
-            largura={576}
-            altura={1024}
-            alt="Vídeo: a Dra. Simone Pinheiro se preparando para um atendimento no consultório"
-            sizes="(max-width: 820px) 80vw, 360px"
-          />
+      <figure className="consultorio">
+        <div className="moldura">
+          <span className="moldura-linha" aria-hidden="true" />
+          <div className="quadro">
+            <VideoComPoster
+              src="/media/abordagem/dra-consultorio"
+              poster="/media/abordagem/dra-consultorio-poster.jpg"
+              largura={576}
+              altura={1024}
+              alt="Vídeo: a Dra. Simone Pinheiro se preparando para um atendimento no consultório"
+              sizes="(max-width: 820px) 80vw, 420px"
+            />
+          </div>
         </div>
-        <figcaption>No consultório da Clínica CCL, Setor Marista</figcaption>
+        <figcaption data-reveal>No consultório da Clínica CCL, Setor Marista</figcaption>
       </figure>
     </section>
+  );
+}
+
+/** Faixa decorativa entre seções: frases já presentes na copy, em contorno, que correm com a rolagem. */
+export function Faixa() {
+  const frases = ["Beleza natural", "Sem exageros", "Do início ao fim"];
+  const bloco = (chave: string) => (
+    <div className="faixa-bloco" key={chave}>
+      {frases.map((f, i) => (
+        <span className="faixa-item" key={f}>
+          <span className={i === 1 ? "cheia" : undefined}>{f}</span>
+          <Cisne />
+        </span>
+      ))}
+    </div>
+  );
+  return (
+    <div className="faixa" aria-hidden="true">
+      <div className="faixa-trilho">
+        {bloco("a")}
+        {bloco("b")}
+      </div>
+    </div>
   );
 }
 
@@ -165,17 +193,17 @@ export function Passos() {
         </p>
       </div>
       <ol>
-        <li data-reveal>
+        <li data-passo>
           <h3>Consulta</h3>
           <p>
             Conversa sobre o que você quer, avaliação dos seus traços e indicação do que faz sentido para você.
           </p>
         </li>
-        <li data-reveal>
+        <li data-passo>
           <h3>Procedimento</h3>
           <p>Realizado pela própria Dra. Simone, com o plano combinado na consulta.</p>
         </li>
-        <li data-reveal>
+        <li data-passo>
           <h3>Acompanhamento</h3>
           <p>Orientações para depois e contato com ela para tirar dúvidas.</p>
         </li>

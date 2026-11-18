@@ -1,6 +1,6 @@
 import { AnimacoesTexto } from "@/components/secoes/AnimacoesTexto";
 import { BarraWhatsApp } from "@/components/secoes/BarraWhatsApp";
-import { Abordagem, Hero, Menu, Onde, Passos, Procedimentos, Rodape, Sobre } from "@/components/secoes/Secoes";
+import { Abordagem, Faixa, Hero, Menu, Onde, Passos, Procedimentos, Rodape, Sobre } from "@/components/secoes/Secoes";
 
 export default function Inicio() {
   return (
@@ -12,6 +12,7 @@ export default function Inicio() {
       <main id="conteudo">
         <Hero />
         <Abordagem />
+        <Faixa />
         <Procedimentos />
         <Passos />
         <Sobre />
