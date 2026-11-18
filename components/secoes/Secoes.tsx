@@ -3,7 +3,6 @@ import { LinkWhatsApp } from "@/components/contato/LinkWhatsApp";
 import { VideoComPoster } from "@/components/midia/VideoComPoster";
 import { site } from "@/lib/site";
 import { Cisne } from "./Cisne";
-import { HeroCamadas } from "./HeroCamadas";
 
 const { negocio } = site;
 const registro = negocio.registroProfissional;
@@ -39,7 +38,7 @@ export function Menu() {
 
 export function Hero() {
   return (
-    <HeroCamadas className="hero">
+    <section className="hero" id="inicio">
       <div className="nome cheio" aria-hidden="true">
         <span className="s">Simone</span>
         <span className="p">Pinheiro</span>
@@ -71,7 +70,7 @@ export function Hero() {
         <strong>Setor Marista, Goiânia</strong>
         Segunda a sábado, das 8h às 20h
       </p>
-    </HeroCamadas>
+    </section>
   );
 }
 

@@ -72,7 +72,7 @@ Seção em andamento: —
 - [ ] Confirmar se pode listar "harmonização glútea" como serviço (só nome, sem imagem) — **quem:** dev/Simone — desde 2026-11-18
 - [x] Vídeo 03 tem a caixa do preenchedor Yvoire (4-6 s), paciente com marcações e procedimento (8-22 s), certificado (17 s) e paciente no espelho (24-27 s, pode ler como resultado): resolvido em 2026-11-18: só os trechos da Dra. entram (MIDIA atualizado) — **quem:** dev — desde 2026-11-18
 - [ ] Apagar `.claude/skills/comecar/scripts/_meio-tmp.mjs` (script temporário da fase 2; o Claude não tem permissão para apagar). Ele faz `skills-sync --check` falhar, então `npm run verificar` só passa depois — **quem:** dev — desde 2026-11-18
-- [ ] Apagar arquivos vazios/sem uso: `components/movimento/RolagemSuave.tsx`, `components/movimento/ConfiguracaoMotion.tsx`, `app/providers-movimento.tsx`, `components/contato/FormularioContato.tsx`, `components/contato/acoes.ts` — **quem:** dev — desde 2026-11-18
+- [ ] Apagar arquivos vazios/sem uso: `components/movimento/RolagemSuave.tsx`, `components/movimento/ConfiguracaoMotion.tsx`, `app/providers-movimento.tsx`, `components/secoes/HeroCamadas.tsx`, `components/contato/FormularioContato.tsx`, `components/contato/acoes.ts` — **quem:** dev — desde 2026-11-18
 - [ ] Lighthouse no preview (não medido); conferir vídeo 14,9-15,2 s e celular real — **quem:** dev — desde 2026-11-18
 - [ ] Mover/apagar `WhatsApp Unknown 2026-11-18 at 09.12.13.zip` na raiz (agora no `.gitignore`) — **quem:** dev — desde 2026-11-18
 - [ ] Git local: `origin` sem usuário `brandforgecontato-oss` e remote `template` ausente — **quem:** dev — desde 2026-11-18
@@ -103,3 +103,4 @@ Seção em andamento: —
 - 2026-11-18 — Refinamento: corte do g nos títulos, Abordagem redesenhada e faixa tipográfica, decisão #21
 - 2026-11-18 — Refinamento: efeito de scroll fixo dos passos desfeito, decisão #22
 - 2026-11-18 — Refinamento: vídeo da Abordagem trocado pela versão sem marca d'água, decisão #23
+- 2026-11-18 — Refinamento: otimização para celular e correção da tela de abertura, decisão #24

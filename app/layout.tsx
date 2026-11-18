@@ -42,15 +42,16 @@ export const viewport: Viewport = {
   themeColor: "#1C0D11",
 };
 
-// Marca `js` no <html> só quando há movimento permitido: o CSS esconde o texto animado apenas nesse caso.
-// Se a hidratação não confirmar em 6 s (data-movimento="ok"), a marca sai e o texto aparece parado.
-const marcaMovimento = `(function(){var d=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;d.classList.add("js");setTimeout(function(){if(d.dataset.movimento!=="ok")d.classList.remove("js")},6000)})()`;
+// Controla a tela de abertura sem depender do React: marca `js` só quando há movimento permitido, e dispara a
+// saída (CSS) quando a página carregou e passaram 2,4 s, com teto de 5 s. Se a animação (GSAP) não ficar pronta
+// até 3,5 s depois da saída, remove `js` e o conteúdo aparece parado.
+const controleAbertura = `(function(){var d=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;d.classList.add("js");var saiu=false;function sair(){if(saiu)return;saiu=true;d.dataset.saiu="1";document.dispatchEvent(new Event("abertura-saiu"));setTimeout(function(){if(d.dataset.movimento!=="ok")d.classList.remove("js")},3500)}function agendar(){setTimeout(sair,Math.max(0,2400-performance.now()))}if(document.readyState==="complete")agendar();else addEventListener("load",agendar);setTimeout(sair,5000)})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt-BR" className={`${cormorant.variable} ${jost.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: marcaMovimento }} />
+        <script dangerouslySetInnerHTML={{ __html: controleAbertura }} />
       </head>
       <body>
         {/* Tela de abertura: só aparece com a marca `js` (movimento permitido); sai por AnimacoesTexto */}

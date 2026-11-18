@@ -41,6 +41,7 @@ const headersSeguranca = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: { formats: ["image/avif", "image/webp"] },
   allowedDevOrigins: ipsDaRede,
   async headers() {
     const headers = siteIndexavel() ? headersSeguranca : [...headersSeguranca, { key: "X-Robots-Tag", value: "noindex, nofollow" }];

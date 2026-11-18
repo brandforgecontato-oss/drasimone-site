@@ -34,7 +34,9 @@ export function VideoComPoster({
   const ref = useRef<HTMLDivElement>(null);
   const pertoDoViewport = useInViewOnce(ref, "300px");
   const prefereMenosMovimento = usePrefereMenosMovimento();
-  const carregarVideo = pertoDoViewport && prefereMenosMovimento === false;
+  // Economia de dados ligada no celular: fica só o poster
+  const economiaDeDados = typeof navigator !== "undefined" && (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
+  const carregarVideo = pertoDoViewport && prefereMenosMovimento === false && !economiaDeDados;
 
   return (
     <div ref={ref} className={className} data-video-com-poster>

@@ -18,31 +18,22 @@ export function AnimacoesTexto() {
         .to(".hero .nome.contorno span", { opacity: 1, y: 0, duration: 1.1, stagger: 0.12 }, 0.15)
         .to(".hero .texto > *, .hero .lado", { opacity: 1, y: 0, duration: 0.9, stagger: 0.1 }, 0.45);
 
-      // Tela de abertura: espera a página carregar e pelo menos 2,6 s (a animação do logo leva ~2,4 s)
-      const loader = document.querySelector<HTMLElement>(".loader");
-      let temporizador: ReturnType<typeof setTimeout> | undefined;
-      const sair = () => {
-        document.documentElement.dataset.carregado = "1";
-        gsap.to(loader, {
-          clipPath: "inset(0 0 100% 0)",
-          duration: 1,
-          ease: "power3.inOut",
-          onComplete: () => {
-            gsap.set(loader, { display: "none" });
-            ScrollTrigger.refresh();
-          },
-        });
-        gsap.delayedCall(0.45, () => heroTl.play());
-      };
-      const agendar = () => {
-        temporizador = setTimeout(sair, Math.max(0, 2600 - performance.now()));
-      };
-      if (loader && document.documentElement.classList.contains("js")) {
-        if (document.readyState === "complete") agendar();
-        else window.addEventListener("load", agendar, { once: true });
-      } else {
-        heroTl.play();
-      }
+      // Paralaxe do hero ("as camadas se abrem"): nomes se afastam e o retrato sobe mais rápido
+      gsap
+        .timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.6 },
+        })
+        .to(".nome .s", { x: "-14vw" }, 0)
+        .to(".nome .p", { x: "14vw" }, 0)
+        .to(".retrato", { y: -90 }, 0);
+
+      // A tela de abertura sai por CSS (script em app/layout.tsx); o hero entra logo depois da saída
+      const d = document.documentElement;
+      const entrar = (atraso: number) => gsap.delayedCall(atraso, () => heroTl.play());
+      const aoSair = () => entrar(0.45);
+      if (d.dataset.saiu || !d.classList.contains("js")) entrar(0.05);
+      else document.addEventListener("abertura-saiu", aoSair, { once: true });
 
       // Títulos de seção: linhas sobem de dentro de uma máscara quando entram na tela
       const splits = gsap.utils.toArray<HTMLElement>("[data-titulo]").map((el) =>
@@ -99,8 +90,7 @@ export function AnimacoesTexto() {
       );
 
       return () => {
-        clearTimeout(temporizador);
-        window.removeEventListener("load", agendar);
+        document.removeEventListener("abertura-saiu", aoSair);
         splits.forEach((s) => s.revert());
       };
     });
