@@ -102,3 +102,4 @@ Seção em andamento: —
 - 2026-11-18 — Refinamento: passos com scroll fixo no desktop, decisão #20
 - 2026-11-18 — Refinamento: corte do g nos títulos, Abordagem redesenhada e faixa tipográfica, decisão #21
 - 2026-11-18 — Refinamento: efeito de scroll fixo dos passos desfeito, decisão #22
+- 2026-11-18 — Refinamento: vídeo da Abordagem trocado pela versão sem marca d'água, decisão #23

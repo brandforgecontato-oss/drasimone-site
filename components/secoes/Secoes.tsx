@@ -98,8 +98,8 @@ export function Abordagem() {
             <VideoComPoster
               src="/media/abordagem/dra-consultorio"
               poster="/media/abordagem/dra-consultorio-poster.jpg"
-              largura={576}
-              altura={1024}
+              largura={464}
+              altura={832}
               alt="Vídeo: a Dra. Simone Pinheiro se preparando para um atendimento no consultório"
               sizes="(max-width: 820px) 80vw, 420px"
             />
