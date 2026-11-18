@@ -355,20 +355,19 @@ h1 {
   font-size: 19px;
 }
 blockquote {
-  position: relative;
   margin-top: 56px;
-  padding-top: 52px;
   font: 500 clamp(28px, 2.5vw, 38px) / 1.2 var(--font-display);
   max-width: 24ch;
 }
 blockquote::before {
   content: "“";
-  position: absolute;
-  left: -0.04em;
-  top: 0;
-  font: 500 150px / 1 var(--font-display);
+  display: block;
+  height: 64px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  font: 500 120px / 1 var(--font-display);
   color: var(--champanhe);
-  opacity: 0.55;
+  opacity: 0.6;
 }
 blockquote cite {
   display: block;
@@ -758,7 +757,8 @@ blockquote cite {
     inset: 14px -14px -14px 14px;
   }
   blockquote::before {
-    font-size: 120px;
+    height: 52px;
+    font-size: 100px;
   }
   .proc {
     grid-template-columns: 1fr;
@@ -1028,12 +1028,11 @@ html.js:not([data-carregado]) {
 .js [data-titulo]:not([data-pronto]) {
   visibility: hidden;
 }
-.titulo-mascara {
+.titulo-linha-mask {
   padding: 0.12em 0.04em 0.32em;
   margin: -0.12em -0.04em -0.32em;
 }
-.js [data-reveal],
-.js [data-passo] {
+.js [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
 }
@@ -1050,16 +1049,6 @@ html.js:not([data-carregado]) {
 @media (prefers-reduced-motion: reduce) {
   .btn::after {
     display: none;
-  }
-}
-
-/* Passos: no desktop a seção fica fixa e os três passos entram conforme a rolagem (AnimacoesTexto) */
-@media (min-width: 821px) {
-  .passos {
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 }
 

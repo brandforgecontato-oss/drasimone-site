@@ -50,7 +50,6 @@ export function AnimacoesTexto() {
           type: "lines",
           mask: "lines",
           linesClass: "titulo-linha",
-          maskClass: "titulo-mascara",
           autoSplit: true,
           onSplit: (self) => {
             el.dataset.pronto = "true";
@@ -104,31 +103,6 @@ export function AnimacoesTexto() {
         window.removeEventListener("load", agendar);
         splits.forEach((s) => s.revert());
       };
-    });
-  });
-
-  // Passos: no desktop a seção fica fixa e cada passo entra conforme a rolagem (scrub, reversível);
-  // no celular não fixa: os passos entram em sequência ao aparecer.
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
-    mm.add({ movimento: "(prefers-reduced-motion: no-preference)", desktop: "(min-width: 821px)" }, (ctx) => {
-      const { movimento, desktop } = ctx.conditions as { movimento: boolean; desktop: boolean };
-      if (!movimento) return;
-      const passos = gsap.utils.toArray<HTMLElement>("[data-passo]");
-      if (!desktop) {
-        ScrollTrigger.batch(passos, {
-          start: "top 90%",
-          once: true,
-          onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: "power3.out" }),
-        });
-        return;
-      }
-      const tl = gsap.timeline({
-        defaults: { ease: "power2.out" },
-        scrollTrigger: { trigger: ".passos", start: "top top", end: "+=170%", pin: true, scrub: 0.6, anticipatePin: 1 },
-      });
-      passos.forEach((el, i) => tl.to(el, { opacity: 1, y: 0, duration: 1 }, i * 1.2));
-      tl.to({}, { duration: 0.6 }); // respiro no fim, com os três passos visíveis
     });
   });
 

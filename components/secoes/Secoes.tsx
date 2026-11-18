@@ -193,17 +193,17 @@ export function Passos() {
         </p>
       </div>
       <ol>
-        <li data-passo>
+        <li data-reveal>
           <h3>Consulta</h3>
           <p>
             Conversa sobre o que você quer, avaliação dos seus traços e indicação do que faz sentido para você.
           </p>
         </li>
-        <li data-passo>
+        <li data-reveal>
           <h3>Procedimento</h3>
           <p>Realizado pela própria Dra. Simone, com o plano combinado na consulta.</p>
         </li>
-        <li data-passo>
+        <li data-reveal>
           <h3>Acompanhamento</h3>
           <p>Orientações para depois e contato com ela para tirar dúvidas.</p>
         </li>
