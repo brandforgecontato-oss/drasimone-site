@@ -483,6 +483,9 @@ blockquote cite {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.proc h3.sub {
+  margin-top: 36px;
+}
 .proc ul {
   font: 500 clamp(22px, 1.9vw, 28px) / 1.35 var(--font-display);
 }

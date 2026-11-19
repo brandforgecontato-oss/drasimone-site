@@ -150,6 +150,7 @@ const corpo = [
   "Bioestimuladores corporais",
   "Estética regenerativa corporal",
 ];
+const tecnologia = ["Ultrassom microfocado / macrofocado", "Endolaser", "CO2 fracionado", "Radiofrequência e outros"];
 
 export function Procedimentos() {
   return (
@@ -173,6 +174,12 @@ export function Procedimentos() {
         <h3 data-reveal>Corpo</h3>
         <ul>
           {corpo.map((p) => (
+            <li key={p} data-reveal>{p}</li>
+          ))}
+        </ul>
+        <h3 className="sub" data-reveal>Tecnologias de rejuvenescimento</h3>
+        <ul>
+          {tecnologia.map((p) => (
             <li key={p} data-reveal>{p}</li>
           ))}
         </ul>

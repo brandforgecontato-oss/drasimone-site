@@ -64,6 +64,7 @@ Landing única (trilha A). Ordem e família de layout de cada seção, para não
   - Preenchimentos corporais
   - Bioestimuladores corporais
   - Estética regenerativa corporal
+  - Subgrupo "Tecnologias de rejuvenescimento": Ultrassom microfocado / macrofocado · Endolaser · CO2 fracionado · Radiofrequência e outros
 - CTA: Agendar pelo WhatsApp
 
 ### 4. Do início ao fim
