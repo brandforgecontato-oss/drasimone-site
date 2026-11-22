@@ -67,7 +67,8 @@ Seção em andamento: —
 - [ ] Perguntar à Dra. sobre as regras de publicidade (CRBM) após a v1; lista de riscos sai em RELATORIO — **quem:** dev — desde 2026-11-14
 - [ ] Google Business Profile: existe? — **quem:** Simone/dev — desde 2026-11-14
 - [x] Verificar e registrar domínio drasimonepinheiro.com.br (registrado, DNS na Vercel, 2026-11-22) — **quem:** dev — desde 2026-11-14
-- [ ] Links de avaliações, CEP, confirmar e-mail — **quem:** Simone — desde 2026-11-14
+- [ ] Links de avaliações — **quem:** Simone — desde 2026-11-14
+- [x] CEP 74150-030 (2026-11-22, dev); e-mail dispensado (dev): site não usa e-mail
 - [ ] Como funciona o atendimento online; se há retorno pós-procedimento incluído (COPY §4 e §6) — **quem:** Simone — desde 2026-11-18
 - [ ] Confirmar se pode listar "harmonização glútea" como serviço (só nome, sem imagem) — **quem:** dev/Simone — desde 2026-11-18
 - [x] Vídeo 03 tem a caixa do preenchedor Yvoire (4-6 s), paciente com marcações e procedimento (8-22 s), certificado (17 s) e paciente no espelho (24-27 s, pode ler como resultado): resolvido em 2026-11-18: só os trechos da Dra. entram (MIDIA atualizado) — **quem:** dev — desde 2026-11-18
@@ -80,7 +81,7 @@ Seção em andamento: —
 ## Provisórios a trocar antes de publicar
 
 - Cisne em SVG redesenhado (aproximação do logo)
-- Sem CEP, e-mail e avaliações (seção de avaliações fora)
+- Sem avaliações (seção de avaliações fora); sem e-mail por decisão do dev
 
 ## Lançamento
 
@@ -108,3 +109,4 @@ Seção em andamento: —
 - 2026-11-22 — Domínio ligado à Vercel, HTTPS ok; no ar com noindex/robots Disallow; falta prévia à Dra. e ok dela para indexar
 - 2026-11-22 — PageSpeed (www): mobile 97/100/100/69 (SEO 69 só por noindex da prévia), desktop 97/100/100/69; LCP 2,3 s mobile, CLS 0. Dra. deu o ok para publicar
 - 2026-11-22 — Lançamento: redeploy com `SITE_INDEXAVEL=true`; robots Allow, meta `index, follow`, sitemap, canonical, JSON-LD e OG conferidos no www
+- 2026-11-22 — Favicon do cisne (`app/favicon.ico`, `icon.svg`, `apple-icon.png`, `public/icon-192|512.png`), `app/manifest.ts`, Twitter Card, `og:url` e JSON-LD ampliado (`@id`, image, logo, areaServed, founder); CEP 74150-030 em `lib/site.ts`. Falta commit (modo 1) e redeploy

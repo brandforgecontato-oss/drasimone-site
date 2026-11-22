@@ -44,7 +44,7 @@ export const site: Site = {
       bairro: "Setor Marista",
       cidade: "Goiânia",
       uf: "GO",
-      cep: "", // pendente do cliente
+      cep: "74150-030",
     },
     horario: ["Mo-Sa 08:00-20:00"],
     redes: ["https://www.instagram.com/drasimonepinheiro"],
