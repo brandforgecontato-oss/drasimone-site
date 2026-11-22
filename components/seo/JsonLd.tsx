@@ -9,9 +9,16 @@ export function JsonLdNegocio() {
   const dados: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": negocio.tipoSchema,
+    "@id": `${urlDoSite()}/#negocio`,
     name: nome,
     url: urlDoSite(),
+    image: `${urlDoSite()}/opengraph-image`,
+    logo: `${urlDoSite()}/icon-512.png`,
   };
+  if (negocio.endereco?.cidade) dados.areaServed = { "@type": "City", name: negocio.endereco.cidade };
+  if (negocio.registroProfissional) {
+    dados.founder = { "@type": "Person", name: nome, jobTitle: "Biomédica esteta", identifier: negocio.registroProfissional };
+  }
   if (descricao) dados.description = descricao;
   if (negocio.telefone) dados.telephone = negocio.telefone;
   if (negocio.email) dados.email = negocio.email;

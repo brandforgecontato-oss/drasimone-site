@@ -29,10 +29,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
+    url: "/",
     siteName: site.nome,
     title: titulo,
     description: "Biomédica esteta, CRBM 11287. Harmonização facial e corporal no Setor Marista e online.",
   },
+  twitter: { card: "summary_large_image", title: titulo, description: site.descricao },
+  authors: [{ name: site.nome }],
+  creator: site.nome,
   // O tema escuro é fixo; o viewport do Next não aceita "only dark".
   other: { "color-scheme": "only dark" },
   robots: siteIndexavel() ? { index: true, follow: true } : { index: false, follow: false },

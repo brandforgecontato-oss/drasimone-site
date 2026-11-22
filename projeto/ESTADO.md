@@ -4,8 +4,8 @@
 
 ## Agora
 
-- **Fase atual:** 6 — Entrega (preview e feedback)
-- **Próximo passo:** dev faz push no GitHub Desktop e conecta repo à Vercel; depois envia a mensagem de preview à Dra.
+- **Fase atual:** 6 — Entrega (no ar e indexável; falta Search Console, GBP e portfólio)
+- **Próximo passo:** dev envia sitemap no Search Console e cria/reivindica o Google Business Profile com a Dra. como proprietária; Claude prepara a entrada do portfólio
 - **Modelo recomendado:** Sonnet
 - **Versionamento:** modo 1 — GitHub Desktop, Claude nunca commita/envia
 - **Última atualização:** 2026-11-22 por Claude
@@ -66,14 +66,14 @@ Seção em andamento: —
 
 - [ ] Perguntar à Dra. sobre as regras de publicidade (CRBM) após a v1; lista de riscos sai em RELATORIO — **quem:** dev — desde 2026-11-14
 - [ ] Google Business Profile: existe? — **quem:** Simone/dev — desde 2026-11-14
-- [ ] Verificar e registrar domínio drasimonepinheiro.com.br — **quem:** dev — desde 2026-11-14
+- [x] Verificar e registrar domínio drasimonepinheiro.com.br (registrado, DNS na Vercel, 2026-11-22) — **quem:** dev — desde 2026-11-14
 - [ ] Links de avaliações, CEP, confirmar e-mail — **quem:** Simone — desde 2026-11-14
 - [ ] Como funciona o atendimento online; se há retorno pós-procedimento incluído (COPY §4 e §6) — **quem:** Simone — desde 2026-11-18
 - [ ] Confirmar se pode listar "harmonização glútea" como serviço (só nome, sem imagem) — **quem:** dev/Simone — desde 2026-11-18
 - [x] Vídeo 03 tem a caixa do preenchedor Yvoire (4-6 s), paciente com marcações e procedimento (8-22 s), certificado (17 s) e paciente no espelho (24-27 s, pode ler como resultado): resolvido em 2026-11-18: só os trechos da Dra. entram (MIDIA atualizado) — **quem:** dev — desde 2026-11-18
 - [ ] Apagar `.claude/skills/comecar/scripts/_meio-tmp.mjs` (script temporário da fase 2; o Claude não tem permissão para apagar). Ele faz `skills-sync --check` falhar, então `npm run verificar` só passa depois — **quem:** dev — desde 2026-11-18
 - [ ] Apagar arquivos vazios/sem uso: `components/movimento/RolagemSuave.tsx`, `components/movimento/ConfiguracaoMotion.tsx`, `app/providers-movimento.tsx`, `components/secoes/HeroCamadas.tsx`, `components/contato/FormularioContato.tsx`, `components/contato/acoes.ts` — **quem:** dev — desde 2026-11-18
-- [ ] Lighthouse no preview (não medido); conferir vídeo 14,9-15,2 s e celular real — **quem:** dev — desde 2026-11-18
+- [x] Lighthouse medido em 2026-11-22 (ver Diário); [ ] conferir vídeo 14,9-15,2 s e celular real — **quem:** dev — desde 2026-11-18
 - [ ] Mover/apagar `WhatsApp Unknown 2026-11-18 at 09.12.13.zip` na raiz (agora no `.gitignore`) — **quem:** dev — desde 2026-11-18
 - [x] Git local: origin com usuário, remote template e user.email ajustados em 2026-11-22
 
@@ -84,7 +84,7 @@ Seção em andamento: —
 
 ## Lançamento
 
-- Domínio: drasimonepinheiro.com.br (a registrar) · Preview: {{URL}} · Produção: {{URL}}
+- Domínio: drasimonepinheiro.com.br (Hostinger; DNS A @ → 216.198.79.1, CNAME www → vercel-dns-017; HTTPS ok em 2026-11-22; apex redireciona 308 para www) · Preview/Produção: https://www.drasimonepinheiro.com.br (indexável desde 2026-11-22; `SITE_INDEXAVEL=true` e `NEXT_PUBLIC_SITE_URL` em produção)
 
 ## Diário curto
 
@@ -105,3 +105,6 @@ Seção em andamento: —
 - 2026-11-18 — Refinamento: vídeo da Abordagem trocado pela versão sem marca d'água, decisão #23
 - 2026-11-18 — Refinamento: otimização para celular e correção da tela de abertura, decisão #24
 - 2026-11-22 — Dev disse "pode entregar": fase 6 iniciada; lint e build ok (skills-sync bloqueado por `_meio-tmp.mjs`); git corrigido (origin, template, email)
+- 2026-11-22 — Domínio ligado à Vercel, HTTPS ok; no ar com noindex/robots Disallow; falta prévia à Dra. e ok dela para indexar
+- 2026-11-22 — PageSpeed (www): mobile 97/100/100/69 (SEO 69 só por noindex da prévia), desktop 97/100/100/69; LCP 2,3 s mobile, CLS 0. Dra. deu o ok para publicar
+- 2026-11-22 — Lançamento: redeploy com `SITE_INDEXAVEL=true`; robots Allow, meta `index, follow`, sitemap, canonical, JSON-LD e OG conferidos no www
